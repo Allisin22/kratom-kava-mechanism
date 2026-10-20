@@ -1,0 +1,372 @@
+body {
+  margin: 0;
+  background: #0f171d;
+  color: #e8ecef;
+  font-family: Arial, sans-serif;
+}
+
+
+/* Main container */
+
+.mechanism {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+
+/* Header */
+
+.mechanism-header {
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d3a06f;
+}
+
+.mechanism-header h1 {
+  margin: 0 0 0.8rem;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  font-weight: 500;
+}
+
+.mechanism-context {
+  max-width: 680px;
+  margin: 1rem 0 0;
+  line-height: 1.65;
+  color: #aeb9c0;
+}
+
+.mechanism-boundary {
+  margin-top: 2rem;
+  padding: 1.2rem 1.3rem;
+
+  border: 1px solid #293842;
+  border-radius: 10px;
+
+  line-height: 1.6;
+  color: #b9c3c9;
+}
+
+.mechanism-boundary p {
+  margin: 0 0 0.7rem;
+}
+
+.mechanism-boundary p:last-child {
+  margin-bottom: 0;
+}
+
+.mechanism-boundary strong {
+  color: #d3a06f;
+}
+
+.model-note {
+  font-size: 0.85rem;
+  color: #83919a;
+}
+
+.intro {
+  max-width: 620px;
+  margin: 0;
+  line-height: 1.6;
+  color: #b9c2c8;
+}
+
+
+/* Step buttons */
+
+.step-controls {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.step-button {
+  padding: 0.7rem 1rem;
+  border: 1px solid #46545d;
+  border-radius: 999px;
+
+  background: transparent;
+  color: #cbd2d6;
+
+  font: inherit;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.step-button:hover {
+  border-color: #d3a06f;
+  color: #ffffff;
+}
+
+.step-button.active {
+  background: #d3a06f;
+  border-color: #d3a06f;
+  color: #11191f;
+}
+
+.compensation.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.rebound.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* SVG */
+
+#mechanism-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#mechanism-svg text {
+  fill: #dbe2e6;
+  font-size: 15px;
+}
+
+
+/* Cell structure */
+
+.cell-membrane {
+  stroke: #71808a;
+  stroke-width: 3;
+}
+
+.region-label,
+.small-label,
+.baseline-label {
+  fill: #81909a;
+  font-size: 12px;
+}
+
+
+/* 7-OH signal */
+
+.signal-molecule {
+  fill: #d3a06f;
+}
+
+.signal-text {
+  fill: #11191f !important;
+  font-size: 12px !important;
+  font-weight: 600;
+}
+
+.signal-arrow,
+.internal-signal line {
+  stroke: #d3a06f;
+  stroke-width: 3;
+}
+
+
+/* Receptor */
+
+.receptor rect {
+  fill: #172630;
+  stroke: #d3a06f;
+  stroke-width: 2;
+}
+
+
+/* Adenylyl cyclase */
+
+.adenylyl-cyclase rect {
+  fill: #172630;
+  stroke: #71808a;
+  stroke-width: 2;
+}
+
+
+/* Baseline */
+
+.baseline {
+  stroke: #65747e;
+  stroke-width: 1.5;
+  stroke-dasharray: 6 6;
+}
+
+
+/* cAMP particles */
+
+.camp-label {
+  fill: #81909a !important;
+  font-size: 13px !important;
+}
+
+.camp {
+  fill: #cbd6dc;
+  transition: opacity 0.3s ease;
+}
+
+
+/* Step 1 — cAMP reduced */
+
+.mechanism-display.step-1 .camp-4,
+.mechanism-display.step-1 .camp-5,
+.mechanism-display.step-1 .camp-6,
+.mechanism-display.step-1 .camp-7,
+.mechanism-display.step-1 .camp-8,
+.mechanism-display.step-1 .camp-9 {
+  opacity: 0.12;
+}
+
+
+/* Step 2 — compensation brings activity back up */
+
+.mechanism-display.step-2 .camp-1,
+.mechanism-display.step-2 .camp-2,
+.mechanism-display.step-2 .camp-3,
+.mechanism-display.step-2 .camp-4,
+.mechanism-display.step-2 .camp-5,
+.mechanism-display.step-2 .camp-6,
+.mechanism-display.step-2 .camp-7 {
+  opacity: 1;
+}
+
+.mechanism-display.step-2 .camp-8,
+.mechanism-display.step-2 .camp-9 {
+  opacity: 0.12;
+}
+
+
+/* Step 3 — rebound / overshoot */
+
+.mechanism-display.step-3 .camp {
+  opacity: 1;
+}
+
+
+/* Compensation */
+
+.compensation {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.compensation.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.compensation line {
+  stroke: #a9bcc8;
+  stroke-width: 2;
+}
+
+.compensation-label {
+  fill: #a9bcc8 !important;
+}
+
+
+/* Rebound */
+
+.rebound {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.rebound.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.rebound-label {
+  fill: #d3a06f !important;
+}
+
+
+/* Hidden opioid signal */
+
+.opioid-signal.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+/* Step 1: reduced cAMP */
+
+.mechanism-display.step-1 .camp-4,
+.mechanism-display.step-1 .camp-5,
+.mechanism-display.step-1 .camp-6,
+.mechanism-display.step-1 .camp-7 {
+  opacity: 0.12;
+}
+
+
+/* Step 2: compensation restores activity */
+
+.mechanism-display.step-2 .camp {
+  opacity: 1;
+}
+
+
+/* Explanation */
+
+.step-explanation {
+  padding-top: 1rem;
+  border-top: 1px solid #293842;
+}
+
+.evidence-label {
+  margin: 0 0 0.6rem;
+
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  color: #d3a06f;
+}
+
+.step-explanation h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+#step-text {
+  max-width: 640px;
+  margin: 0;
+
+  line-height: 1.65;
+  color: #c4cdd2;
+}
+
+.internal-signal.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .mechanism {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .step-controls {
+    flex-direction: column;
+  }
+
+  .step-button {
+    width: 100%;
+    text-align: left;
+  }
+
+  #mechanism-svg text {
+    font-size: 14px;
+  }
+}

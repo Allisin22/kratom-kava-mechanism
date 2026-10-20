@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>When Compensation Becomes Visible</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="mechanism">
+
+    <header class="mechanism-header">
+
+      <p class="eyebrow">
+        Show the mechanism
+      </p>
+
+      <h1>
+        When compensation becomes visible
+      </h1>
+
+      <p class="intro">
+        How can a biological system look stable while an adaptation
+        is building underneath?
+      </p>
+
+      <p class="mechanism-context">
+        One well-studied opioid mechanism gives us a concrete example.
+        Repeated mu-opioid receptor activation can suppress part of the
+        cell's cAMP signaling, while the cell gradually builds an opposing
+        response. While both are present, they can partially balance one
+        another. Removing the opioid signal can expose the adaptation that
+        had been building underneath.
+      </p>
+
+    </header>
+
+
+    <div class="step-controls">
+
+      <button class="step-button active" data-step="1">
+        1 · Signal arrives
+      </button>
+
+      <button class="step-button" data-step="2">
+        2 · Repeated exposure
+      </button>
+
+      <button class="step-button" data-step="3">
+        3 · Signal removed
+      </button>
+
+    </div>
+
+
+    <section class="mechanism-display step-1">
+
+      <svg
+        id="mechanism-svg"
+        viewBox="0 0 700 420"
+        role="img"
+        aria-labelledby="svg-title svg-description">
+
+        <title id="svg-title">
+          Opioid signaling and cellular compensation
+        </title>
+
+        <desc id="svg-description">
+          A simplified diagram showing 7-hydroxymitragynine
+          activating the mu-opioid receptor, changes in cAMP
+          signaling, cellular compensation during repeated exposure,
+          and rebound after the opioid signal is removed.
+        </desc>
+
+
+        <!-- OUTSIDE / INSIDE CELL -->
+
+        <text
+          class="region-label"
+          x="40"
+          y="35">
+          outside cell
+        </text>
+
+        <text
+          class="region-label"
+          x="40"
+          y="150">
+          inside cell
+        </text>
+
+
+        <!-- CELL MEMBRANE -->
+
+        <line
+          class="cell-membrane"
+          x1="40"
+          y1="115"
+          x2="660"
+          y2="115"
+          stroke="#71808a"
+          stroke-width="3" />
+
+
+        <!-- 7-OH SIGNAL -->
+
+        <g class="opioid-signal">
+
+          <circle
+            class="signal-molecule"
+            cx="350"
+            cy="60"
+            r="20"
+            fill="#d3a06f" />
+
+          <text
+            class="signal-text"
+            x="350"
+            y="65"
+            text-anchor="middle">
+            7-OH
+          </text>
+
+          <line
+            class="signal-arrow"
+            x1="350"
+            y1="82"
+            x2="350"
+            y2="98" />
+
+        </g>
+
+
+        <!-- MU-OPIOID RECEPTOR -->
+
+        <g class="receptor">
+
+          <rect
+            x="310"
+            y="94"
+            width="80"
+            height="42"
+            rx="18" />
+
+          <text
+            x="350"
+            y="120"
+            text-anchor="middle">
+            MOR
+          </text>
+
+        </g>
+
+
+        <!-- SIGNAL FROM RECEPTOR INTO CELL -->
+
+        <g class="internal-signal">
+
+          <line
+            x1="350"
+            y1="140"
+            x2="350"
+            y2="175" />
+
+          <text
+            x="368"
+            y="162">
+            signal
+          </text>
+
+        </g>
+
+
+        <!-- ADENYLYL CYCLASE -->
+
+        <g class="adenylyl-cyclase">
+
+          <rect
+            x="275"
+            y="180"
+            width="150"
+            height="55"
+            rx="10" />
+
+          <text
+            x="350"
+            y="203"
+            text-anchor="middle">
+            adenylyl cyclase
+          </text>
+
+          <text
+            class="small-label"
+            x="350"
+            y="222"
+            text-anchor="middle">
+            helps produce cAMP
+          </text>
+
+        </g>
+
+
+        <!-- COMPENSATORY CHANGE -->
+
+        <g class="compensation">
+
+          <text
+            class="compensation-label"
+            x="470"
+            y="188">
+            compensation ↑
+          </text>
+
+          <line
+            x1="455"
+            y1="198"
+            x2="425"
+            y2="205" />
+
+        </g>
+
+
+        <!-- cAMP ACTIVITY -->
+
+        <g class="camp-display">
+
+          <text
+            class="camp-label"
+            x="350"
+            y="275"
+            text-anchor="middle">
+            cAMP activity
+          </text>
+
+          <circle class="camp camp-1" cx="230" cy="310" r="8" />
+          <circle class="camp camp-2" cx="260" cy="310" r="8" />
+          <circle class="camp camp-3" cx="290" cy="310" r="8" />
+
+          <circle class="camp camp-4" cx="320" cy="310" r="8" />
+          <circle class="camp camp-5" cx="350" cy="310" r="8" />
+          <circle class="camp camp-6" cx="380" cy="310" r="8" />
+          <circle class="camp camp-7" cx="410" cy="310" r="8" />
+
+          <circle class="camp camp-8" cx="440" cy="310" r="8" />
+          <circle class="camp camp-9" cx="470" cy="310" r="8" />
+
+        </g>
+
+        <!-- REBOUND / OVERSHOOT -->
+
+        <g class="rebound">
+
+          <text
+            class="rebound-label"
+            x="350"
+            y="355"
+            text-anchor="middle">
+            cAMP overshoot
+          </text>
+
+          <text
+            class="small-label"
+            x="350"
+            y="378"
+            text-anchor="middle">
+            compensation remains after the signal disappears
+          </text>
+
+        </g>
+
+      </svg>
+
+    </section>
+
+
+    <section class="step-explanation">
+
+      <p class="evidence-label">
+        Established opioid mechanism
+      </p>
+
+      <h2 id="step-title">
+        The signal arrives
+      </h2>
+
+      <p id="step-text">
+        Mu-opioid receptor activation can reduce activity in
+        a cellular signaling pathway involving cAMP.
+      </p>
+
+    </section>
+
+    <section class="mechanism-boundary">
+
+      <p>
+        <strong>Established:</strong>
+        repeated opioid signaling can recruit compensatory changes
+        in the cAMP pathway.
+      </p>
+
+      <p>
+        <strong>Still open:</strong>
+        how much this mechanism contributes to sustained
+        kratom–kava withdrawal, and what additional adaptations
+        kava may introduce.
+      </p>
+
+      <p class="model-note">
+        The changing number of cAMP dots is conceptual, not a measured
+        concentration or physiological simulation.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
